@@ -1,0 +1,6 @@
+framework module Pods_GHExample {
+  umbrella header "Pods-GHExample-umbrella.h"
+
+  export *
+  module * { export * }
+}
