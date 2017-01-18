@@ -196,6 +196,7 @@
 				TargetAttributes = {
 					022A61A41E2F337D00FB85ED = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ELJV42N84Z;
 						ProvisioningStyle = Automatic;
 					};
 					022A61BB1E2F337D00FB85ED = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ELJV42N84Z;
 				INFOPLIST_FILE = GHExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.GHExample;
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ELJV42N84Z;
 				INFOPLIST_FILE = GHExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.GHExample;
