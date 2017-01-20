@@ -20,16 +20,16 @@ public class Github {
         sessionManager?.adapter = AccessTokenAdapter(accessToken: token)
     }
     
-    public func getTrending(completion: @escaping (JSON) -> Void) {
-        //TODO: set trending by date
-        //TODO: set sort function
-        let url = "https://api.github.com/search/repositories?q=2017-01-03&sort=stars"
-        Alamofire.request(url).responseJSON { response in
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
-        }
-    }
+//    public func getTrending(completion: @escaping (JSON) -> Void) {
+//        //TODO: set trending by date
+//        //TODO: set sort function
+//        let url = "https://api.github.com/search/repositories?q=2017-01-03&sort=stars"
+//        Alamofire.request(url).responseJSON { response in
+//            if let JSON = response.result.value {
+//                print("JSON: \(JSON)")
+//            }
+//        }
+//    }
 
     /*
      authRequest

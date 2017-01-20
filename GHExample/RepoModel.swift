@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct RepoModel {
+public struct RepoModel {
     //json["url"]
     var url: String?
     //json["created_at"]
@@ -23,14 +23,15 @@ struct RepoModel {
     
 }
 
-extension RepoModel {
-    init?(json: JSON) {
+public extension RepoModel {
+    init?(dictionary: NSDictionary) {
         
-        guard let url = json["url"] as? String,
-            let createdAt = json["created_at"] as? String,
-            let description = json["description"] as? String,
-            let language = json["language"] as? String,
-            let owner = json["owner"]["url"] as? String
+        guard let url = dictionary["url"] as? String,
+            let createdAt = dictionary["created_at"] as? String,
+            let description = dictionary["description"] as? String,
+            let language = dictionary["language"] as? String,
+            let ownerJSON = dictionary["owner"] as? NSDictionary,
+            let owner = ownerJSON["url"] as? String
             else {
                 return nil
         }
