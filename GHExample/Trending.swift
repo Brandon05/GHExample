@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-public enum Result<T> {
+enum Result<T> {
     case success(T)
     case failure(Error)
 }
 
-class RepoService: Gettable {
+struct RepoService: Gettable {
     
     func get(completion: @escaping (Result<[RepoModel]>) -> Void) {
         
@@ -66,7 +66,7 @@ class RepoService: Gettable {
 }
 
 
-public extension Github {
+extension Github {
     
     func getTrending<Service: Gettable>(fromService service: Service, completion: @escaping ([RepoModel]) -> Void) where Service.repos == [RepoModel] {
         
@@ -83,7 +83,7 @@ public extension Github {
     }
 }
 
-public protocol Gettable {
+protocol Gettable {
     associatedtype repos
     
     func get(completion: @escaping (Result<repos>) -> Void)
