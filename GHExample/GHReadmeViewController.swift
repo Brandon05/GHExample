@@ -11,8 +11,6 @@ import Alamofire
 import Down
 
 class GHReadmeViewController: UIViewController {
-    
-    var markdownString: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
