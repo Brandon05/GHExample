@@ -8,6 +8,7 @@ target 'GHExample' do
   # Pods for GHExample
   pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'master'
   pod 'SwiftyJSON'
+  pod 'Down'
 
   target 'GHExampleTests' do
     inherit! :search_paths
