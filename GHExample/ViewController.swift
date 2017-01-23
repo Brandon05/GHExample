@@ -10,15 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private var accessToken = ""
     var repos: [RepoModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
-        let git = Github(token: accessToken)
-        git.getTrending(fromService: RepoService()) { result in
+        Github().getTrending(fromService: RepoService()) { result in
             self.repos = result
             print(self.repos)
         }

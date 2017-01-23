@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
 
 enum Result<T> {
     case success(T)
@@ -40,23 +38,7 @@ struct RepoService: Gettable {
         }
         
         completion(Result.success(repos))
-        //TODO: set trending by date
-        //TODO: set sort function
-        //let url = "https://api.github.com/search/repositories?q=2017-01-03&sort=stars"
-//        Alamofire.request(url).validate().responseJSON { response in
-//            switch response.result {
-//            case .success(let repos):
-//
-//                let repoJSON = JSON(repos)
-//                
-//                if let repo = RepoModel(json: repoJSON) {
-//                    completion(Result.success(repo))
-//                    print("GET: \(repo)")
-//                }
-//            case .failure(let error):
-//                print("error in getTrending: \(error)")
-//            }
-//        }
+            
         }
         
         task.resume()

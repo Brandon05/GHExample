@@ -6,8 +6,6 @@ target 'GHExample' do
   use_frameworks!
 
   # Pods for GHExample
-  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'master'
-  pod 'SwiftyJSON'
 
   target 'GHExampleTests' do
     inherit! :search_paths
