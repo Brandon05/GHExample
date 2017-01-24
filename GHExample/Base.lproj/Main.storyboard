@@ -44,6 +44,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ownerLabel" destination="4Ra-06-qGV" id="TSL-Zq-Rge"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="8E4-gw-urn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

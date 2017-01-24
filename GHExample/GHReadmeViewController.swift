@@ -15,6 +15,7 @@ class GHReadmeViewController: UIViewController {
     var fullName: String = "" {
         didSet{
             //Call 1st function to get "download_url"
+            getReadME(fromService: ReadMEService(fullName: fullName))
         }
     }
 
@@ -27,18 +28,18 @@ class GHReadmeViewController: UIViewController {
         // 2. readme["download_url"] = Markdown url
         // 3. Make the following call:
         
-        Alamofire.request("https://raw.githubusercontent.com/KickSwap/Bred1s-iOS/master/README.md").response { response in
-            //print("Request: \(response.request)")
-            //print("Response: \(response.response)")
-            //print("Error: \(response.error)")
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                //Place markdown into view
-                let downView = try? DownView(frame: self.view.bounds, markdownString: utf8Text)
-                self.view = downView
-
-            }
-        }
+//        Alamofire.request("https://raw.githubusercontent.com/KickSwap/Bred1s-iOS/master/README.md").response { response in
+//            //print("Request: \(response.request)")
+//            //print("Response: \(response.response)")
+//            //print("Error: \(response.error)")
+//            
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+//                //Place markdown into view
+//                let downView = try? DownView(frame: self.view.bounds, markdownString: utf8Text)
+//                self.view = downView
+//
+//            }
+//        }
         
         // Do any additional setup after loading the view.
     }
@@ -59,4 +60,20 @@ class GHReadmeViewController: UIViewController {
     }
     */
 
+}
+
+extension GHReadmeViewController {
+    func getReadME<Service: ReadME>(fromService service: Service) where Service.readME == String {
+        service.getRawUrl() { result in
+            switch result {
+            case .success(let utf8Text):
+                print(utf8Text)
+                let downView = try? DownView(frame: self.view.bounds, markdownString: utf8Text)
+                self.view = downView
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }

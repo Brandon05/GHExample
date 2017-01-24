@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0189E945B43BBD722840E107 /* Pods_GHExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD3AD727E68D5461399A769 /* Pods_GHExampleUITests.framework */; };
 		0219E0891E3712AE00EC6531 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219E0881E3712AE00EC6531 /* TrendingCell.swift */; };
+		0219E08B1E37194000EC6531 /* ReadME.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219E08A1E37194000EC6531 /* ReadME.swift */; };
 		022A61A91E2F337D00FB85ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A61A81E2F337D00FB85ED /* AppDelegate.swift */; };
 		022A61AB1E2F337D00FB85ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A61AA1E2F337D00FB85ED /* ViewController.swift */; };
 		022A61AE1E2F337D00FB85ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022A61AC1E2F337D00FB85ED /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		0219E0881E3712AE00EC6531 /* TrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
+		0219E08A1E37194000EC6531 /* ReadME.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadME.swift; sourceTree = "<group>"; };
 		022A61A51E2F337D00FB85ED /* GHExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		022A61A81E2F337D00FB85ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		022A61AA1E2F337D00FB85ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				022A61E11E2F3C0900FB85ED /* Github.swift */,
 				0269CF4A1E3089B20022C0C4 /* Trending.swift */,
+				0219E08A1E37194000EC6531 /* ReadME.swift */,
 			);
 			name = "Swift Github";
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				022A61B11E2F337D00FB85ED /* GHExample.xcdatamodeld in Sources */,
 				474848AB1E35C43600DF1445 /* GHViewController.swift in Sources */,
 				474848AE1E35C48600DF1445 /* GHReadmeViewController.swift in Sources */,
+				0219E08B1E37194000EC6531 /* ReadME.swift in Sources */,
 				022A61AB1E2F337D00FB85ED /* ViewController.swift in Sources */,
 				022A61E21E2F3C0900FB85ED /* Github.swift in Sources */,
 				0269CF4B1E3089B20022C0C4 /* Trending.swift in Sources */,

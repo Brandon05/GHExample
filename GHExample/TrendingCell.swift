@@ -26,7 +26,7 @@ class TrendingCell: UITableViewCell {
     var repo: RepoModel! {
         didSet {
             ownerLabel.text = repo.owner
-            print(repo.owner)
+            //print(repo.owner)
         }
     }
 

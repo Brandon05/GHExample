@@ -48,22 +48,35 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if repos != nil {
         cell.repo = repos[indexPath.row]
-            print(repos[indexPath.row].owner)
+            //print(repos[indexPath.row].owner)
         }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = trendingTableView.indexPathForSelectedRow
+        
+        guard let fullName = repos[(indexPath?.row)!].owner else {fatalError("error passing data")}
+        
+        let readMeController = segue.destination as! GHReadmeViewController
+        readMeController.fullName = fullName
+        
     }
-    */
+ 
     
     
 
