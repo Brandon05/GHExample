@@ -30,7 +30,7 @@ extension RepoModel {
             let description = dictionary["description"] as? String,
             let language = dictionary["language"] as? String,
             let ownerJSON = dictionary["owner"] as? NSDictionary,
-            let owner = ownerJSON["url"] as? String
+            let owner = dictionary["full_name"] as? String
             else {
                 return nil
         }

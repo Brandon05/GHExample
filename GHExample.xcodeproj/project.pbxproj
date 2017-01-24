@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0189E945B43BBD722840E107 /* Pods_GHExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD3AD727E68D5461399A769 /* Pods_GHExampleUITests.framework */; };
+		0219E0891E3712AE00EC6531 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219E0881E3712AE00EC6531 /* TrendingCell.swift */; };
 		022A61A91E2F337D00FB85ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A61A81E2F337D00FB85ED /* AppDelegate.swift */; };
 		022A61AB1E2F337D00FB85ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A61AA1E2F337D00FB85ED /* ViewController.swift */; };
 		022A61AE1E2F337D00FB85ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022A61AC1E2F337D00FB85ED /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0219E0881E3712AE00EC6531 /* TrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		022A61A51E2F337D00FB85ED /* GHExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		022A61A81E2F337D00FB85ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		022A61AA1E2F337D00FB85ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				022A61B71E2F337D00FB85ED /* Info.plist */,
 				022A61AF1E2F337D00FB85ED /* GHExample.xcdatamodeld */,
 				022A61E61E2F42A200FB85ED /* RepoModel.swift */,
+				0219E0881E3712AE00EC6531 /* TrendingCell.swift */,
 			);
 			path = GHExample;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				0269CF4B1E3089B20022C0C4 /* Trending.swift in Sources */,
 				022A61A91E2F337D00FB85ED /* AppDelegate.swift in Sources */,
 				022A61E71E2F42A200FB85ED /* RepoModel.swift in Sources */,
+				0219E0891E3712AE00EC6531 /* TrendingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

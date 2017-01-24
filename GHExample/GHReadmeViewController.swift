@@ -11,14 +11,26 @@ import Alamofire
 import Down
 
 class GHReadmeViewController: UIViewController {
+    
+    var fullName: String = "" {
+        didSet{
+            //Call 1st function to get "download_url"
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // API Request: GET /repos/:owner/:repo/readme
+        // repo["full_name"] = owner/repo
+        // 1. GET /repos/full_name/readme
+        // 2. readme["download_url"] = Markdown url
+        // 3. Make the following call:
+        
         Alamofire.request("https://raw.githubusercontent.com/KickSwap/Bred1s-iOS/master/README.md").response { response in
-            print("Request: \(response.request)")
-            print("Response: \(response.response)")
-            print("Error: \(response.error)")
+            //print("Request: \(response.request)")
+            //print("Response: \(response.response)")
+            //print("Error: \(response.error)")
             
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 //Place markdown into view
