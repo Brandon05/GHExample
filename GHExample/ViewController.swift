@@ -7,20 +7,18 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 class ViewController: UIViewController {
 
-    private var accessToken = ""
+    var repos: [RepoModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        var git = Github(token: accessToken)
-        git.getTrending() { result in
-            print(result)
+       
+        Github().getTrending(fromService: RepoService()) { result in
+            self.repos = result
+            print(self.repos)
         }
         
     }
@@ -29,7 +27,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
+
+private extension Github {
+    
+}
+
+
 

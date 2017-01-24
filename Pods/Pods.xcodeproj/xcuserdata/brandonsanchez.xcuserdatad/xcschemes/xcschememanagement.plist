@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-GHExample.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,25 +19,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1282A445AAB41C720D2C7D7FDF0E5F0F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3DAE5774CC0165B96875B59CC5422EC6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +32,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC110BD29CE116EE76BAC5E1514C6F8C</key>
+		<key>D2DE7EFD0F95A31C640DAF3F39E7DE4F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
