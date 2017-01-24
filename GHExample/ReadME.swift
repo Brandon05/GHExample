@@ -12,10 +12,11 @@ import Down
 struct ReadMEService: ReadME {
     
     var fullName: String
-
-func markdown(download urlString: String, completion: @escaping (Result<String>) -> Void) {
     
-    let url = URL(string: urlString)!
+    
+func markdown(completion: @escaping (Result<String>) -> Void) {
+    let rawGithub = "https://raw.githubusercontent.com/\(fullName)/master/README.md"
+    let url = URL(string: rawGithub)!
     let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
     let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
     let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -41,6 +42,7 @@ func markdown(download urlString: String, completion: @escaping (Result<String>)
         print(fullName)
         
         var readMeString = "https://api.github.com/repos/\(fullName)/readme"
+        
 
         let url = URL(string: readMeString)!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -57,7 +59,7 @@ func markdown(download urlString: String, completion: @escaping (Result<String>)
             print(downloadURL)
             //var utf8Text = ""
             
-            self.markdown(download: downloadURL) { result in
+            self.markdown() { result in
                 switch result {
                 case .success(let utf8Text):
                     //utf8Text = utf8Text
@@ -80,7 +82,7 @@ func markdown(download urlString: String, completion: @escaping (Result<String>)
 protocol ReadME {
     associatedtype readME
     
-    func getRawUrl(completion: @escaping (Result<readME>) -> Void)
+    func markdown(completion: @escaping (Result<readME>) -> Void)
     
 }
 

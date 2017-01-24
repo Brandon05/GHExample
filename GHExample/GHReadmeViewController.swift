@@ -64,7 +64,7 @@ class GHReadmeViewController: UIViewController {
 
 extension GHReadmeViewController {
     func getReadME<Service: ReadME>(fromService service: Service) where Service.readME == String {
-        service.getRawUrl() { result in
+        service.markdown() { result in
             switch result {
             case .success(let utf8Text):
                 print(utf8Text)
