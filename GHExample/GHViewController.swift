@@ -67,13 +67,23 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let cell = sender as! UITableViewCell
-        let indexPath = trendingTableView.indexPathForSelectedRow
-        
-        guard let fullName = repos[(indexPath?.row)!].owner else {fatalError("error passing data")}
-        
-        let readMeController = segue.destination as! GHReadmeViewController
-        readMeController.fullName = fullName
+        if(sender is UITableView){
+            // Detail
+            let cell = sender as! UITableViewCell
+            let indexPath = trendingTableView.indexPathForSelectedRow
+            
+            guard let fullName = repos[(indexPath?.row)!].owner else {fatalError("error passing data")}
+            
+            let readMeController = segue.destination as! GHReadmeViewController
+            readMeController.fullName = fullName
+
+        } else if (sender is UITabBarItem) {
+            // Filter
+            print(sender)
+            
+        } else {
+            print(sender)
+        }
         
     }
  
