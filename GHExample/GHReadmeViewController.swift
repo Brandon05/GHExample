@@ -12,6 +12,7 @@ import Down
 
 class GHReadmeViewController: UIViewController {
     
+    @IBOutlet weak var ReadmeView: UIView!
     var fullName: String = "" {
         didSet{
             //Call 1st function to get "download_url"
@@ -27,19 +28,6 @@ class GHReadmeViewController: UIViewController {
         // 1. GET /repos/full_name/readme
         // 2. readme["download_url"] = Markdown url
         // 3. Make the following call:
-        
-//        Alamofire.request("https://raw.githubusercontent.com/KickSwap/Bred1s-iOS/master/README.md").response { response in
-//            //print("Request: \(response.request)")
-//            //print("Response: \(response.response)")
-//            //print("Error: \(response.error)")
-//            
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                //Place markdown into view
-//                let downView = try? DownView(frame: self.view.bounds, markdownString: utf8Text)
-//                self.view = downView
-//
-//            }
-//        }
         
         // Do any additional setup after loading the view.
     }
@@ -69,7 +57,7 @@ extension GHReadmeViewController {
             case .success(let utf8Text):
                 print(utf8Text)
                 let downView = try? DownView(frame: self.view.bounds, markdownString: utf8Text)
-                self.view = downView
+                self.ReadmeView.addSubview(downView!)
             case .failure(let error):
                 print(error)
             }

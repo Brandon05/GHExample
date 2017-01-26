@@ -67,7 +67,7 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if(sender is UITableView){
+        if(segue.identifier == "TimelineToDetails"){
             // Detail
             let cell = sender as! UITableViewCell
             let indexPath = trendingTableView.indexPathForSelectedRow
@@ -77,17 +77,7 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let readMeController = segue.destination as! GHReadmeViewController
             readMeController.fullName = fullName
 
-        } else if (sender is UITabBarItem) {
-            // Filter
-            print(sender)
-            
-        } else {
-            print(sender)
         }
         
     }
- 
-    
-    
-
 }
