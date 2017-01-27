@@ -13,6 +13,11 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var filterTableView: UITableView!
     
     var filter = ["testing", "this", ":"]
+    var dictionary: [String:[String]] = [
+        "Language" : ["Swift", "Objective-C", "C++"],
+        "Sort" : ["By Fork", "By Stars"],
+        "Time" : ["Today", "3 Days", "Week", "Month", "Year", "All Time"]
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +35,20 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     // Mark: - UITableView Delegate and DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard filter != nil else {return 3}
-        return filter.count
+        var keys = Array(dictionary.keys)
+        return dictionary[keys[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = filterTableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath) as? GHFilterTableViewCell else {
             fatalError("Unable to dequeueResuableCell withIdentifier: FilterCell")
         }
+        var keyArray = Array(dictionary.keys)
         
-        if filter != nil {
-            cell.filterName.text = filter[indexPath.row]
-            //print(repos[indexPath.row].owner)
+        if  keyArray != nil {
+            var key = keyArray[indexPath.section]
+            var valueArray = dictionary[key]
+            cell.filterName.text = valueArray?[indexPath.row]
         }
         
         return cell
@@ -51,12 +59,13 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return dictionary.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        tableView.sectionHeaderHeight = 100
-        return "title"
+        tableView.sectionHeaderHeight = 35
+        var keyArray = Array(dictionary.keys)
+        return keyArray[section]
     }
 
     /*
