@@ -113,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="928.79999999999995" y="131.78410794602701"/>
         </scene>
-        <!--View Controller-->
+        <!--Filter View Controller-->
         <scene sceneID="yrT-Er-MSP">
             <objects>
-                <viewController id="mfa-Kv-vyG" sceneMemberID="viewController">
+                <viewController id="mfa-Kv-vyG" customClass="GHFilterViewController" customModule="GHExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5RS-VE-1Rz"/>
                         <viewControllerLayoutGuide type="bottom" id="VOF-QG-Mcd"/>
@@ -125,29 +125,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JX-e3-X3E">
-                                <rect key="frame" x="147" y="323" width="80" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="6UZ-2n-n52"/>
-                                    <constraint firstAttribute="height" constant="21" id="hf8-iZ-hz5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-mh-3ka">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" id="kNG-wn-Z8M" customClass="GHFilterTableViewCell" customModule="GHExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kNG-wn-Z8M" id="7fv-x0-aHw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-Vo-oBg">
+                                                    <rect key="frame" x="22" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UtQ-Vo-oBg" firstAttribute="top" secondItem="7fv-x0-aHw" secondAttribute="topMargin" constant="3" id="B8t-hx-pvs"/>
+                                                <constraint firstItem="UtQ-Vo-oBg" firstAttribute="leading" secondItem="7fv-x0-aHw" secondAttribute="leadingMargin" constant="14" id="dqb-F2-6wE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="filterName" destination="UtQ-Vo-oBg" id="bL2-S8-5M6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3JX-e3-X3E" firstAttribute="top" secondItem="5RS-VE-1Rz" secondAttribute="bottom" constant="259" id="1bF-XZ-Csz"/>
-                            <constraint firstItem="3JX-e3-X3E" firstAttribute="leading" secondItem="hG7-9q-7GO" secondAttribute="leadingMargin" constant="131" id="Gq3-qG-d7b"/>
-                            <constraint firstItem="VOF-QG-Mcd" firstAttribute="top" secondItem="3JX-e3-X3E" secondAttribute="bottom" constant="323" id="dqp-49-TAQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3JX-e3-X3E" secondAttribute="trailing" constant="132" id="dsB-wG-9aC"/>
+                            <constraint firstItem="VOF-QG-Mcd" firstAttribute="top" secondItem="sQc-mh-3ka" secondAttribute="bottom" id="7OW-3t-glx"/>
+                            <constraint firstAttribute="trailing" secondItem="sQc-mh-3ka" secondAttribute="trailing" id="Ccp-gI-3fF"/>
+                            <constraint firstItem="sQc-mh-3ka" firstAttribute="top" secondItem="hG7-9q-7GO" secondAttribute="top" id="had-8P-S8N"/>
+                            <constraint firstItem="sQc-mh-3ka" firstAttribute="leading" secondItem="hG7-9q-7GO" secondAttribute="leading" id="tub-Hx-N7S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="filterTableView" destination="sQc-mh-3ka" id="vHZ-s2-G2E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cU-Sp-Zvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="886"/>
+            <point key="canvasLocation" x="133.59999999999999" y="885.60719640179911"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KTl-SM-y9b">
