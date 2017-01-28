@@ -4,20 +4,41 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Down.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-GHExample.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-GHExampleTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-GHExampleUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -27,7 +48,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>43134A787828ADAA327E8EB54C1E5F6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A0D50A98720DEE091D37676037B502AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A7379ECD7C5B88886DC2FECE46517119</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9C69DD1B56DFDFB874D37070D2D3186</key>
 		<dict>
 			<key>primary</key>
 			<true/>

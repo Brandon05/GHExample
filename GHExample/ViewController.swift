@@ -18,7 +18,7 @@ class ViewController: UIViewController {
        
         Github().getTrending(fromService: RepoService()) { result in
             self.repos = result
-            print(self.repos)
+            //print(self.repos)
         }
         
     }
