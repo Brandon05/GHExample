@@ -8,6 +8,16 @@
 
 import Foundation
 
+// MARK: - Protocol for Trending call
+
+protocol Gettable {
+    associatedtype repos
+    
+    func get(completion: @escaping (Result<repos>) -> Void)
+}
+
+// MARK: - Result enum for error handling in network calls
+
 enum Result<T> {
     case success(T)
     case failure(Error)
@@ -47,6 +57,7 @@ struct RepoService: Gettable {
     }
 }
 
+// MARK: - Method to mke network cal in View Controllers, checks for a Repo model retun type
 
 extension Github {
     
@@ -65,9 +76,5 @@ extension Github {
     }
 }
 
-protocol Gettable {
-    associatedtype repos
-    
-    func get(completion: @escaping (Result<repos>) -> Void)
-}
+
 

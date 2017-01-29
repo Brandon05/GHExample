@@ -15,20 +15,16 @@ class GHReadmeViewController: UIViewController {
     @IBOutlet weak var ReadmeView: UIView!
     var fullName: String = "" {
         didSet{
-            //Call 1st function to get "download_url"
-            getReadME(fromService: ReadMEService(fullName: fullName))
+            // Method returns Markdown as String
+            Github().getReadME(fromService: ReadMEService(fullName: fullName)) { markdownString in
+                let downView = try? DownView(frame: self.view.bounds, markdownString: markdownString)
+                self.ReadmeView.addSubview(downView!)
+            }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // API Request: GET /repos/:owner/:repo/readme
-        // repo["full_name"] = owner/repo
-        // 1. GET /repos/full_name/readme
-        // 2. readme["download_url"] = Markdown url
-        // 3. Make the following call:
-        
         // Do any additional setup after loading the view.
     }
 
@@ -48,20 +44,4 @@ class GHReadmeViewController: UIViewController {
     }
     */
 
-}
-
-extension GHReadmeViewController {
-    func getReadME<Service: ReadME>(fromService service: Service) where Service.readME == String {
-        service.markdown() { result in
-            switch result {
-            case .success(let utf8Text):
-                print(utf8Text)
-                let downView = try? DownView(frame: self.view.bounds, markdownString: utf8Text)
-                self.ReadmeView.addSubview(downView!)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
 }
