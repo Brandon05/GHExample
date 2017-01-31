@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GHFilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GHFilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
 
     @IBOutlet weak var filterTableView: UITableView!
     
@@ -18,12 +18,8 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
         "Time" : ["Today", "3 Days", "Week", "Month", "Year", "All Time"]
     ]
     
-    var selections: [String:String] = [
-        "Language": "Swift",
-        "Sort": "By Fork",
-        "Time": "Today"
-    ]
-    
+    var selections = GHFilter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.filterTableView.delegate = self
@@ -56,7 +52,7 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
             cell.filterName.text = valueArray?[indexPath.row]
             
             // show current selections for filter values
-            if(self.selections[key] == valueArray?[indexPath.row]){
+            if(self.selections.data[key] == valueArray?[indexPath.row]){
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             } else {
                 cell.accessoryType = UITableViewCellAccessoryType.none
@@ -69,8 +65,7 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath) as! GHFilterTableViewCell
         selectedCell.accessoryType = UITableViewCellAccessoryType.checkmark
-        self.selections[(tableView.headerView(forSection: indexPath.section)?.textLabel?.text)!] = selectedCell.filterName.text
-        print(selections)
+        self.selections.data[(tableView.headerView(forSection: indexPath.section)?.textLabel?.text)!] = selectedCell.filterName.text
         tableView.reloadData()
     }
     
@@ -83,8 +78,14 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
         var keyArray = Array(dictionary.keys)
         return keyArray[section]
     }
+    
+    // MARK: - UINavigationControllerDelegate
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if let controller = viewController as? GHViewController {
+            //controller.filters = selections    // Here you pass the data back to your original view controller
+        }
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -92,7 +93,6 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
 

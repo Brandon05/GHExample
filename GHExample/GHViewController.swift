@@ -11,6 +11,7 @@ import UIKit
 class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var trendingTableView: UITableView!
+    var filter = GHFilter()
     
     var repos = [RepoModel]() {
         didSet {
@@ -28,6 +29,12 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         Github().getTrending(fromService: RepoService()) { result in
             self.repos = result
         }
+        
+        filter.data = [
+            "Language": "Swift",
+            "Sort": "By Fork",
+            "Time": "Today"
+        ]
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,10 +61,8 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
-
     
     // MARK: - Navigation
 
@@ -66,16 +71,20 @@ class GHViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        // Detail
         if(segue.identifier == "TimelineToDetails"){
-            // Detail
             let cell = sender as! UITableViewCell
             let indexPath = trendingTableView.indexPathForSelectedRow
-            
             guard let fullName = repos[(indexPath?.row)!].owner else {fatalError("error passing data")}
-            
             let readMeController = segue.destination as! GHReadmeViewController
             readMeController.fullName = fullName
 
+        }
+        
+        // Filter
+        if(segue.identifier == "TimelineToFilter"){
+            let controller = segue.destination as! GHFilterViewController
+            controller.selections = filter
         }
         
     }
