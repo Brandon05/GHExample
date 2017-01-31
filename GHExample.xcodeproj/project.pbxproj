@@ -24,6 +24,7 @@
 		08F73E1DDB7EFB87C399F680 /* Pods_GHExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8599C952C81214F0F53F87 /* Pods_GHExample.framework */; };
 		474848AB1E35C43600DF1445 /* GHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474848AA1E35C43600DF1445 /* GHViewController.swift */; };
 		474848AE1E35C48600DF1445 /* GHReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474848AD1E35C48600DF1445 /* GHReadmeViewController.swift */; };
+		4799F9021E40C84300BBF0F8 /* GHFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799F9011E40C84300BBF0F8 /* GHFilter.swift */; };
 		47F8F4061E3ADD160040BEB6 /* GHFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8F4051E3ADD160040BEB6 /* GHFilterViewController.swift */; };
 		47F8F4091E3ADFC60040BEB6 /* GHFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8F4081E3ADFC60040BEB6 /* GHFilterTableViewCell.swift */; };
 		FBE17F5DA71AA42E73302356 /* Pods_GHExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADFC7237CC9C8DAC8F9578D /* Pods_GHExampleTests.framework */; };
@@ -69,6 +70,7 @@
 		2D8599C952C81214F0F53F87 /* Pods_GHExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		474848AA1E35C43600DF1445 /* GHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHViewController.swift; sourceTree = "<group>"; };
 		474848AD1E35C48600DF1445 /* GHReadmeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHReadmeViewController.swift; sourceTree = "<group>"; };
+		4799F9011E40C84300BBF0F8 /* GHFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHFilter.swift; sourceTree = "<group>"; };
 		47F8F4051E3ADD160040BEB6 /* GHFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHFilterViewController.swift; sourceTree = "<group>"; };
 		47F8F4081E3ADFC60040BEB6 /* GHFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHFilterTableViewCell.swift; sourceTree = "<group>"; };
 		4EBA868483EA58FB543770BA /* Pods-GHExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GHExample/Pods-GHExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		022A61A71E2F337D00FB85ED /* GHExample */ = {
 			isa = PBXGroup;
 			children = (
+				4799F9001E40C82E00BBF0F8 /* Models */,
 				47F8F4071E3ADF070040BEB6 /* Views */,
 				474848AC1E35C44000DF1445 /* Controllers */,
 				022A61A81E2F337D00FB85ED /* AppDelegate.swift */,
@@ -185,6 +188,14 @@
 				47F8F4051E3ADD160040BEB6 /* GHFilterViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4799F9001E40C82E00BBF0F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4799F9011E40C84300BBF0F8 /* GHFilter.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		47F8F4071E3ADF070040BEB6 /* Views */ = {
@@ -511,6 +522,7 @@
 				0269CF4B1E3089B20022C0C4 /* Trending.swift in Sources */,
 				022A61A91E2F337D00FB85ED /* AppDelegate.swift in Sources */,
 				022A61E71E2F42A200FB85ED /* RepoModel.swift in Sources */,
+				4799F9021E40C84300BBF0F8 /* GHFilter.swift in Sources */,
 				47F8F4091E3ADFC60040BEB6 /* GHFilterTableViewCell.swift in Sources */,
 				0219E0891E3712AE00EC6531 /* TrendingCell.swift in Sources */,
 			);

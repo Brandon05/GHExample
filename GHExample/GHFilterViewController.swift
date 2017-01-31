@@ -8,17 +8,18 @@
 
 import UIKit
 
-class GHFilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GHFilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
 
     @IBOutlet weak var filterTableView: UITableView!
     
-    var filter = ["testing", "this", ":"]
     var dictionary: [String:[String]] = [
         "Language" : ["Swift", "Objective-C", "C++"],
         "Sort" : ["By Fork", "By Stars"],
         "Time" : ["Today", "3 Days", "Week", "Month", "Year", "All Time"]
     ]
     
+    var selections = GHFilter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.filterTableView.delegate = self
@@ -34,7 +35,7 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     
     // Mark: - UITableView Delegate and DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard filter != nil else {return 3}
+        guard dictionary != nil else {return 3}
         var keys = Array(dictionary.keys)
         return dictionary[keys[section]]!.count
     }
@@ -49,13 +50,23 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
             var key = keyArray[indexPath.section]
             var valueArray = dictionary[key]
             cell.filterName.text = valueArray?[indexPath.row]
+            
+            // show current selections for filter values
+            if(self.selections.data[key] == valueArray?[indexPath.row]){
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.none
+            }
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let selectedCell = tableView.cellForRow(at: indexPath) as! GHFilterTableViewCell
+        selectedCell.accessoryType = UITableViewCellAccessoryType.checkmark
+        self.selections.data[(tableView.headerView(forSection: indexPath.section)?.textLabel?.text)!] = selectedCell.filterName.text
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,8 +78,14 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
         var keyArray = Array(dictionary.keys)
         return keyArray[section]
     }
+    
+    // MARK: - UINavigationControllerDelegate
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if let controller = viewController as? GHViewController {
+            //controller.filters = selections    // Here you pass the data back to your original view controller
+        }
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -76,6 +93,7 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
+
+extension GHFilterViewController {}
