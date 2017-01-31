@@ -12,11 +12,16 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var filterTableView: UITableView!
     
-    var filter = ["testing", "this", ":"]
     var dictionary: [String:[String]] = [
         "Language" : ["Swift", "Objective-C", "C++"],
         "Sort" : ["By Fork", "By Stars"],
         "Time" : ["Today", "3 Days", "Week", "Month", "Year", "All Time"]
+    ]
+    
+    var selections: [String:String] = [
+        "Language": "Swift",
+        "Sort": "By Fork",
+        "Time": "Today"
     ]
     
     override func viewDidLoad() {
@@ -34,7 +39,7 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     
     // Mark: - UITableView Delegate and DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard filter != nil else {return 3}
+        guard dictionary != nil else {return 3}
         var keys = Array(dictionary.keys)
         return dictionary[keys[section]]!.count
     }
@@ -49,13 +54,24 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
             var key = keyArray[indexPath.section]
             var valueArray = dictionary[key]
             cell.filterName.text = valueArray?[indexPath.row]
+            
+            // show current selections for filter values
+            if(self.selections[key] == valueArray?[indexPath.row]){
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.none
+            }
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let selectedCell = tableView.cellForRow(at: indexPath) as! GHFilterTableViewCell
+        selectedCell.accessoryType = UITableViewCellAccessoryType.checkmark
+        self.selections[(tableView.headerView(forSection: indexPath.section)?.textLabel?.text)!] = selectedCell.filterName.text
+        print(selections)
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,3 +95,5 @@ class GHFilterViewController: UIViewController, UITableViewDelegate, UITableView
     */
 
 }
+
+extension GHFilterViewController {}
